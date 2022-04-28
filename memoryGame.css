@@ -1,9 +1,56 @@
+*{
+  box-sizing: border-box;
+}
 
-/* #gameTable{
-    background-color: black;
-    text-align: center;
-    height: 500px;
-    width: 700px;
-    /* border-radius: 50%; */
-    /* margin-bottom: 10px;
-} */ */
+ 
+    body{
+      background-color: 6C4A4A;
+      text-align: center;
+      font-family: monospace;
+      
+    }
+
+    h1{
+      color:  C89595;
+      margin: 2%;
+      margin-top: 2%;
+    }
+    
+    #gameTable{
+      
+  background-color: DDBEBE ; 
+  height: 500px;
+  width: 600px;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  
+}
+  .card {
+    background-color: C89595;
+    font-size: xx-large;
+    height: 90px;
+    width: 70px;
+    margin:2%;
+    padding: 1ch;
+    border: 2px 6C4A4A;
+    border-radius:  3px;
+    
+   }  
+  
+
+   .card:hover{
+    border-style: ridge;
+    border-color: 6C4A4A;
+    cursor:hand;
+   }
+
+   .textOpen{
+     color: blue;
+   }
+
+  
+ 
