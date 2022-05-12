@@ -6,51 +6,74 @@
     body{
       background-color: 6C4A4A;
       text-align: center;
-      font-family: monospace;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       
     }
-
+    
     h1{
       color:  C89595;
       margin: 2%;
       margin-top: 2%;
+      text-shadow:4px 4px 8px black;
     }
     
-    #gameTable{
+    #wholeGame{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
       
+    }
+
+    .scoreBoard{
+      flex: 1;
+      font-family: cursive;
+      font-size: xx-large;
+      color: DDBEBE;
+      text-shadow:4px 4px 8px black;
+    }
+
+    .names{
+      margin: 0%;
+    }
+
+    #gameTable{
   background-color: DDBEBE ; 
   height: 500px;
-  width: 600px;
+  width: 650px;
   margin: auto;
-  padding: 30px;
+  padding: 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
+  text-shadow:4px 4px 8px black;
+  
+  /* gap: 5px; */
   
 }
+
+
+
+
   .card {
     background-color: C89595;
-    font-size: xx-large;
+    color: DDBEBE;
+    font-size: larger;
+    font: bold;
     height: 90px;
     width: 70px;
     margin:2%;
-    padding: 1ch;
-    border: 2px 6C4A4A;
+    padding-top: 27px;
     border-radius:  3px;
     
    }  
   
 
    .card:hover{
-    border-style: ridge;
-    border-color: 6C4A4A;
+    /* border-style: ridge;
+    border-color: 6C4A4A; */
     cursor:hand;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
    }
 
-   .textOpen{
-     color: blue;
-   }
-
-  
- 
+   
