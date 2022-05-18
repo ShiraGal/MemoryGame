@@ -117,6 +117,7 @@ function remuveCouple(openCard, lastCard){
     // alert("Well done! Take another turn!");
     openCard.style.visibility = 'hidden'
     lastCard.style.visibility = 'hidden'
+    arrOpen = [];
 }
 // -------------------------------------------
 
@@ -135,6 +136,7 @@ function deleteTextFromCards(openCard, lastCard){
         name2.style.textDecoration = "underline";
         name1.style.textDecoration = '';
     }
+    arrOpen = [];
 }
 // -------------------------------------------
 
@@ -207,38 +209,39 @@ function startGame(){
         elem.id = cards[i];
         
         elem.onclick = (e) => {
-            
-            soundCord(e.target.id);
-            sound.play();
-            let openCard = e.target;
-            e.target.innerHTML = elem.id;
-            openCard.style.visibility = '';
-            openCard.style.backgroundColor = "E36BAE";
-            
-            if(openCard.innerHTML != arrOpen[0]){
-                arrOpen.push(openCard.innerHTML);
-            }
-
-            // השוואת הקלפים:
-            if(arrOpen.length == 2){
-
-                if(cardsAreCouple()){
-                    arrOpen = [];
-                    setTimeout(remuveCouple, 2000, openCard, lastCard); 
-                    setTimeout(extraScore,2000);
-                   
-                }
-                else{
-                    arrOpen = [];
-                    setTimeout(deleteTextFromCards, 3000, openCard, lastCard);
-                    changePleyer()
-                }
+            if(arrOpen.length >= 2){
             }
             else{
-                lastCard = openCard;
+                soundCord(e.target.id);
+                sound.play();
+                let openCard = e.target;
+                e.target.innerHTML = elem.id;
+                openCard.style.visibility = '';
+                openCard.style.backgroundColor = "E36BAE";
+                
+                if(openCard.innerHTML != arrOpen[0]){
+                    arrOpen.push(openCard.innerHTML);
+                }
+    
+                // השוואת הקלפים:
+                if(arrOpen.length == 2){
+    
+                    if(cardsAreCouple()){
+                        setTimeout(remuveCouple, 2000, openCard, lastCard); 
+                        setTimeout(extraScore,2000);
+                        // arrOpen = [];  
+                    }
+                    else{
+                        setTimeout(deleteTextFromCards, 3000, openCard, lastCard);
+                        changePleyer()
+                        // arrOpen = [];
+                    }
+                }
+                else{
+                    lastCard = openCard;
+                }
             }
         }
-
         board.appendChild(elem);
     }
     return cards
