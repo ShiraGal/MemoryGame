@@ -4,17 +4,20 @@
 
  
     body{
-      background-color: 6C4A4A;
+      background-image: url("img/240_F_190012418_fwCOPSmMrcEz26tuLVmbiywlAT8kZAB4.jpg");
+      /* background-repeat: no-repeat; */
+      background-size: contain;
+      background-color: rgba(0, 0, 0, 0.881);
       text-align: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       
     }
     
     h1{
-      color:  C89595;
-      margin: 2%;
+      color: E36BAE;
+      /* margin: 2%; */
       margin-top: 2%;
-      text-shadow:4px 4px 8px black;
+      text-shadow:4px 4px 8px rgba(255, 255, 255, 0.326);
     }
     
     #wholeGame{
@@ -25,12 +28,55 @@
       
     }
 
+    .message{
+      background-color: rgba(0, 0, 0, 0.881);
+      position: absolute;
+      top: 13%;
+      height: 80%;
+      width: 50%;
+      text-align: center;
+      color: E36BAE;
+      padding: 8%;
+    }
+
+    h2{
+      color: 771144;
+      margin: 4%;
+    }
+
+    .inputs{
+      height: 5%;
+      width: 20%;
+      margin: 4%;
+      min-height: 10%;
+      min-width: 30%;
+
+    }
+
+    h5{
+      color: 771144;
+      margin: 4%;
+    }
+
+    button{
+      margin: 4%;
+      min-height: 15%;
+      min-width: 30%;
+      border-color: E36BAE;
+      border-radius: 20%;
+    }
+    button:hover{
+      cursor:hand;
+      box-shadow: 0 4px 16px 0 rgba(155, 255, 255, 0.176);
+     }
+
+
     .scoreBoard{
+      color: E36BAE; /*E5D429;*/
       flex: 1;
       font-family: cursive;
       font-size: xx-large;
-      color: DDBEBE;
-      text-shadow:4px 4px 8px black;
+      text-shadow:4px 4px 8px rgba(0, 0, 0, 0.582);;
     }
 
     .names{
@@ -38,28 +84,20 @@
     }
 
     #gameTable{
-  background-color: DDBEBE ; 
-  height: 500px;
-  width: 650px;
-  margin: auto;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-shadow:4px 4px 8px black;
-  
-  /* gap: 5px; */
-  
-}
-
-
-
+      position: static;
+      height: 80%;
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-shadow: rgba(37, 36, 36, 0.575);
+    }
 
   .card {
-    background-color: C89595;
-    color: DDBEBE;
-    font-size: larger;
-    font: bold;
+    background-color: 771144;
+    color: black;
+    font-size: 150%;
+    font: bolder;
     height: 90px;
     width: 70px;
     margin:2%;
@@ -70,10 +108,16 @@
   
 
    .card:hover{
-    /* border-style: ridge;
-    border-color: 6C4A4A; */
     cursor:hand;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.176);
    }
+
+
+   #endMes{
+    color: 771144;
+    padding: 8%;
+    font-size: xx-large;
+   }
+
 
    

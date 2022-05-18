@@ -14,6 +14,10 @@
  let score2 = document.getElementById("player2");
  let name2 = document.getElementById("name2");
  let v2 = document.getElementById("v2");
+ let begin = document.getElementById("begin");
+ let input1 = document.getElementById("input1");
+ let input2 = document.getElementById("input2");
+ let btnStart = document.getElementById("btn");
 
 //  מערך שני שחקנים:
  let players = [
@@ -26,6 +30,25 @@
 
  
 
+ //=============================================================
+//פונקציית קדמה למשחק
+
+function foreword(){
+    btnStart.onclick = (e) => {
+        players[0].player1 = input1.value;
+        players[1].player2 = input2.value;
+        begin.style.visibility = 'hidden';
+        createPlayres();
+    } 
+}
+// -------------------------------------------
+// פונקציית הכנת לוח ניקוד:
+function createPlayres(){
+    name1.innerText = players[0].player1; 
+    name2.innerText = players[1].player2; 
+    name1.style.textDecoration = "underline";
+}
+// -------------------------------------------
 
 
 //  ערבוב הקלפים:
@@ -42,15 +65,8 @@
 
     
 //==============================================================
-//TODO!!! PROMPT!
-// פונקציית הכנת לוח ניקוד:
-function createPlayres(){
-    name1.innerText = prompt("Who will be the first player?","player 1");
-    name2.innerText = prompt("And who will be the second player?","player 2");
-    players[0].player1 = name1.innerText; 
-    players[1].player2 = name2.innerText;
-}
-// -------------------------------------------
+
+
 // פונקציה שמחברת סאונד לקלף
 
 function soundCord(id){
@@ -108,8 +124,8 @@ function remuveCouple(openCard, lastCard){
 function deleteTextFromCards(openCard, lastCard){
     openCard.innerHTML = "";
     lastCard.innerHTML = "";
-    openCard.style.backgroundColor = "C89595";
-    lastCard.style.backgroundColor = "C89595";
+    openCard.style.backgroundColor = "771144";
+    lastCard.style.backgroundColor = "771144";
     // החלפת סימון לשחקן הבא שישחק:
     if(playNaw == players[0]){
         name1.style.textDecoration = "underline";
@@ -155,14 +171,26 @@ function gameOver(){
 }
 //  הודעת ניצחון
 function endMessage(){
+    let endMes = document.createElement("div");
+    endMes.className = "message";
+    endMes.id = "endMes";
+    board.appendChild(endMes);
+
     if(players[0].score > players[1].score){
-        alert("The End! \n"+ players[0].player1 + " is the winner!!!")
+        endMes.innerText = "The End! \n"+ players[0].player1 + " is the winner!!! \n\n";
     }
     else if(players[0].score < players[1].score){
-        alert("The End! \n"+ players[1].player2 + " is the winner!!!")
+        endMes.innerText = "The End! \n"+ players[1].player2 + " is the winner!!! \n\n";
     }
     else{
-        alert("The End! \n"+ players[0].player1 +" and "+players[1].player2+": \n you both won!")
+        endMes.innerText = "The End! \n"+ players[0].player1 +" and "+players[1].player2+": \n you both won! \n\n";
+    }
+
+    let btnStartaAgain = document.createElement("button");
+    endMes.appendChild(btnStartaAgain);
+    btnStartaAgain.innerText = "play again"
+    btnStartaAgain.onclick = (e) => {
+        location.reload();
     }
 }
 
@@ -172,25 +200,24 @@ function endMessage(){
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function startGame(){
-    createPlayres()
+    foreword();
     for(i in cards){
         let elem = document.createElement("div");
         elem.className = "card";
         elem.id = cards[i];
-        name1.style.textDecoration = "underline";
-        
         
         elem.onclick = (e) => {
+            
             soundCord(e.target.id);
             sound.play();
             let openCard = e.target;
             e.target.innerHTML = elem.id;
             openCard.style.visibility = '';
-            openCard.style.backgroundColor = "6C4A4A";
+            openCard.style.backgroundColor = "E36BAE";
             
-            arrOpen.push(openCard.innerHTML);
-            console.log(playNaw);
-
+            if(openCard.innerHTML != arrOpen[0]){
+                arrOpen.push(openCard.innerHTML);
+            }
 
             // השוואת הקלפים:
             if(arrOpen.length == 2){
