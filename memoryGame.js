@@ -209,9 +209,7 @@ function startGame(){
         elem.id = cards[i];
         
         elem.onclick = (e) => {
-            if(arrOpen.length >= 2){
-            }
-            else{
+            if(!(arrOpen.length >= 2)){
                 soundCord(e.target.id);
                 sound.play();
                 let openCard = e.target;
@@ -240,7 +238,7 @@ function startGame(){
                 else{
                     lastCard = openCard;
                 }
-            }
+            } 
         }
         board.appendChild(elem);
     }
